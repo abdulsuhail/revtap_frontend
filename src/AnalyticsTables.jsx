@@ -1,6 +1,13 @@
-import { Table } from 'antd';
+import Table from './components/Table';
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { Typography } from 'antd';
 
+const { Title } = Typography;
+
+const StyledTitle = styled(Title)`
+    padding-top: 20px;
+`;
 const columns = [
     {
         title: 'Day',
@@ -22,12 +29,26 @@ const columns = [
 function AnalyticsTable() {
     const [dataSource, setDataSource] = useState([]);
 
-    useEffect(async () => {
-        let result = await fetch('/analytics');
-        let responseJson = await result.json()
-        setDataSource(responseJson)
+    useEffect(() => {
+
+        async function fetchData() {
+            let result = await fetch('/analytics');
+            let responseJson = await result.json()
+            setDataSource(responseJson)
+
+        }
+        fetchData();
     }, [])
-    return <Table columns={columns} dataSource={dataSource} />
+    return (
+        <div>
+            <StyledTitle level={2}>Analytics</StyledTitle>
+            <Table
+                columns={columns}
+                dataSource={dataSource}
+                pagination={{ pageSize: 2 }}
+            />
+        </div>
+    )
 }
 
 export default AnalyticsTable;

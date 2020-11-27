@@ -1,6 +1,13 @@
-import { Table} from 'antd';
+import Table from './components/Table';
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { Typography } from 'antd';
 
+const { Title } = Typography;
+
+const StyledTitle = styled(Title)`
+    padding-top: 20px;
+`;
 
 const columns = [
     {
@@ -24,7 +31,7 @@ const columns = [
         key: 'quantity',
     },
     {
-        title: 'CreatedAt',
+        title: 'Created',
         dataIndex: 'createdAt',
         key: 'createdAt',
     }
@@ -32,13 +39,28 @@ const columns = [
 
 function OrdersTable() {
     const [dataSource, setDataSource] = useState([]);
+    useEffect(()=>{
 
-    useEffect(async () => {
-        let result = await fetch('/order');
-        let responseJson = await result.json()
-        setDataSource(responseJson.data)
-    }, [])
-    return <Table columns={columns} dataSource={dataSource} />
+        async function fetchData()
+        {
+            let result = await fetch('/order');
+            let responseJson = await result.json()
+            setDataSource(responseJson.data)
+    
+        }
+        fetchData();
+    },[])
+    return (
+    <div>
+    <StyledTitle level={2}>Orders</StyledTitle>
+    <Table 
+        className="ant-table-content" 
+        columns={columns} 
+        dataSource={dataSource} 
+        pagination={{ pageSize: 2 }}
+        />
+    </div>
+    )
 }
 
 export default OrdersTable;
