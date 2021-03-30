@@ -2,6 +2,7 @@ import Table from './components/Table';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Typography } from 'antd';
+import { Chart, LineAdvance } from 'bizcharts';
 
 const { Title } = Typography;
 
@@ -32,7 +33,7 @@ function AnalyticsTable() {
     useEffect(() => {
 
         async function fetchData() {
-            let result = await fetch('/analytics');
+            let result = await fetch('/analytics/?startDate=2020-10-01&endDate=2020-11-30');
             let responseJson = await result.json()
             setDataSource(responseJson)
 
@@ -45,8 +46,17 @@ function AnalyticsTable() {
             <Table
                 columns={columns}
                 dataSource={dataSource}
-                pagination={{ pageSize: 2 }}
+                pagination={{ pageSize: 50 }}
             />
+
+            <Chart padding={[10, 20, 50, 40]} autoFit height={300} data={dataSource} >
+                <LineAdvance
+                    shape="smooth"
+                    point
+                    area
+                    position="day*ordersCount"
+                />
+            </Chart>
         </div>
     )
 }

@@ -41,7 +41,9 @@ function CustomerTable(props) {
 
     async function fetchData() {
       let result = await fetch('/customer');
+      console.log("customers data :-",result)
       let responseJson = await result.json()
+      console.log("response in json :-",responseJson)
       setDataSource(responseJson.data)
 
     }
