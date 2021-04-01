@@ -1,4 +1,4 @@
-
+name: Web Page Test
 on: [pull_request]
 
 jobs:
