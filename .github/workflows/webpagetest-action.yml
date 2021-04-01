@@ -10,8 +10,8 @@ jobs:
       
       - name: Node Setup
         uses: actions/setup-node@v1
-        run: npm install
-        run: npm start
+
+      - run: npm install
       
       - name: WebPageTest
         uses: WPO-Foundation/webpagetest-github-action@main
