@@ -20,4 +20,4 @@ jobs:
             https://isageapp.com/healthcare.html
           label: 'GitHub Action Test'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          wptOptions: 'wpt-options.json'
+          wptOptions: '../wpt-options.json'
