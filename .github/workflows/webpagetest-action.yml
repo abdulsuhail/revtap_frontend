@@ -1,3 +1,4 @@
+
 on: [pull_request]
 
 jobs:
@@ -11,13 +12,13 @@ jobs:
       - name: Node Setup
         uses: actions/setup-node@v1
       - run: npm install
-      - run: npm start
+
       - name: WebPageTest
         uses: WPO-Foundation/webpagetest-github-action@main
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
           urls: |
-            http://localhost:3000
+            https://isageapp.com/healthcare.html
           label: 'GitHub Action Test'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
