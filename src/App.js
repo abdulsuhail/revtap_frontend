@@ -7,6 +7,7 @@ import './App.css';
 
 const App = () => (
   <div className="App">
+    
     <CustomersTable />
     <OrdersTable />
     <AnalyticsTable />
