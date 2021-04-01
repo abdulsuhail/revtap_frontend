@@ -17,3 +17,4 @@ jobs:
             https://example.com/about
           label: 'GitHub Action Test'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
