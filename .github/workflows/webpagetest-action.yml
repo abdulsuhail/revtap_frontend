@@ -19,7 +19,7 @@ jobs:
         run: npm run build
 
       # - name: PM2 Install
-      - run: npm i -g server
+      - run: npm i server -g
       # - name: PM2 Start
         # run: pm2 start app.js
       - run: serve -s build
