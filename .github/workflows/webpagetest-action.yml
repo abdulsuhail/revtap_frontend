@@ -26,7 +26,7 @@ jobs:
       # - run: serve -s build
 
       - name: WebPageTest
-        uses: WPO-Foundation/webpagetest-github-action@main
+        uses: abdulsuhail/web-test@main
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
           urls: |
