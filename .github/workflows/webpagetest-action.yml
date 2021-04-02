@@ -1,3 +1,4 @@
+name: Web Page Test
 on: [pull_request]
 
 jobs:
@@ -8,3 +9,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
+      - name: WebPageTest
+        uses: WPO-Foundation/webpagetest-github-action@main
+        with:
+          apiKey: ${{ secrets.WPT_API_KEY }}
+          urls: |
+            https://isageapp.com/healthcare.html
+          label: 'GitHub Action Test'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          wptOptions: '/.github/workflows/wpt-options.json'
