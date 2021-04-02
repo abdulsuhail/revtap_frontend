@@ -1,4 +1,5 @@
 {
     "runs": 1,
-    "location": "Dulles:Chrome"
+    "location": "Dulles:Chrome",
+    "fullResolutionScreenshot" : true
 }
