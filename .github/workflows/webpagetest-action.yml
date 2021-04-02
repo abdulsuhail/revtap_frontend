@@ -9,6 +9,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
+      - name: Node Setup
+        uses: actions/setup-node@v1
+
+      - run: npm install
+
+      - run: npm start 
+      
       - name: WebPageTest
         uses: WPO-Foundation/webpagetest-github-action@main
         with:
