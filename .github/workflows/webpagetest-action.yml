@@ -29,7 +29,7 @@ jobs:
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
           urls: |
-            localhost:9000
+            localhost:3000
           label: 'GitHub Action Test'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
