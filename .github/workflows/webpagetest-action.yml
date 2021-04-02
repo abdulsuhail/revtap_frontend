@@ -13,9 +13,10 @@ jobs:
         uses: actions/setup-node@v1
 
       - run: npm install
+      - run: npm install pm2@latest -g
 
-      - run: npm start 
-      
+      - run: pm2 start npm -- start
+
       - name: WebPageTest
         uses: WPO-Foundation/webpagetest-github-action@main
         with:
