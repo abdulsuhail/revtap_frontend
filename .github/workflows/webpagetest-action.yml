@@ -17,8 +17,9 @@ jobs:
 
       - name: Prepare Build
         run: npm run build
-        
+
       - name: PM2
+        run: npm i pm2@latest 
         run: pm2 start app.js
 
       - name: WebPageTest
