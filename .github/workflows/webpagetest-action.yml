@@ -18,10 +18,11 @@ jobs:
       - name: Prepare Build
         run: npm run build
 
-      - name: PM2 Install
-        run: npm i pm2@latest -g
-      - name: PM2 Start
-        run: pm2 start app.js
+      # - name: PM2 Install
+      - run: npm i -g server
+      # - name: PM2 Start
+        # run: pm2 start app.js
+      - run: serve -s build
 
       - name: WebPageTest
         uses: WPO-Foundation/webpagetest-github-action@main
