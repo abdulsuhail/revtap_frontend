@@ -6,20 +6,8 @@ pipeline {
     agent any
  
     stages {
-        /* checkout repo */
-        stage('Checkout SCM') {
-            steps {
-                checkout([
-                 $class: 'GitSCM',
-                 branches: [[name: 'master']],
-                 userRemoteConfigs: [[
-                    url: 'git@github.com/abdulsuhail/revtap_frontend.git',
-                    credentialsId: '',
-                 ]]
-                ])
-            }
-        }
-         stage('Do the deployment') {
+        
+         stage('Web Page Test') {
             steps {
                 echo ">> Run deploy applications "
             }
