@@ -1,13 +1,37 @@
+
+properties([pipelineTriggers([githubPush()])])
+ 
 pipeline {
-    agent any 
-  triggers {
-    githubPush()
-  }
+    /* specify nodes for executing */
+    agent {
+        label 'github-ci'
+    }
+ 
     stages {
-        stage('Web Page Test') {
+        /* checkout repo */
+        stage('Checkout SCM') {
             steps {
-                echo 'webpagetest' 
+                checkout([
+                 $class: 'GitSCM',
+                 branches: [[name: 'master']],
+                 userRemoteConfigs: [[
+                    url: 'git@github.com:wshihadeh/rabbitmq_client.git',
+                    credentialsId: '',
+                 ]]
+                ])
+            }
+        }
+         stage('Do the deployment') {
+            steps {
+                echo ">> Run deploy applications "
             }
         }
     }
+ 
+    /* Cleanup workspace */
+    post {
+       always {
+           deleteDir()
+       }
+   }
 }
