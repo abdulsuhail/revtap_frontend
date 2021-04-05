@@ -1,0 +1,10 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Web Page Test') {
+            steps {
+                echo 'webpagetest' 
+            }
+        }
+    }
+}
