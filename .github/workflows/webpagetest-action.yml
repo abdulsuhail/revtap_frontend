@@ -36,7 +36,7 @@ jobs:
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
           urls: |
-            localhost:5000
+            localhost:9000
 
           label: 'GitHub Action Test'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
