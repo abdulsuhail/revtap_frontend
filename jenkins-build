@@ -9,7 +9,7 @@ pipeline {
         
          stage('Web Page Test') {
             steps {
-                echo ">> Run deploy applications "
+                webpagetest test https://www.google.com/search?q=mac+m1+chip --poll --wait -k %WPT_API_KEY%
             }
         }
     }
