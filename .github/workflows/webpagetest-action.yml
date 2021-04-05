@@ -15,28 +15,12 @@ jobs:
       - name: Install Packages
         run: npm install
 
-      - name: Prepare Build
-        run: npm run build
-
-      - name: PM2 Install
-        run: npm i pm2@latest -g
-
-      - name: PM2 Start
-        run: pm2 --name Web-Test start app.js
-
-      # - name: Serve Install
-      #   run: npm i -g serve
-
-      # - name: Run Serve
-      #   run: serve -s build
-      # - run: serve -s build
-
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
           urls: |
-            localhost:9000
+            https://www.google.com/search?q=mac+m1+chip
 
           label: 'GitHub Action Test'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
