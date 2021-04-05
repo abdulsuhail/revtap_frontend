@@ -4,7 +4,7 @@ properties([pipelineTriggers([githubPush()])])
 pipeline {
     /* specify nodes for executing */
     agent any
-   tools {nodejs "node"}
+   tools {nodejs "nodejs"}
     stages {
         
          stage('Web Page Test') {
