@@ -15,7 +15,7 @@ pipeline {
                  $class: 'GitSCM',
                  branches: [[name: 'master']],
                  userRemoteConfigs: [[
-                    url: 'git@github.com:wshihadeh/rabbitmq_client.git',
+                    url: 'git@github.com/abdulsuhail/revtap_frontend.git',
                     credentialsId: '',
                  ]]
                 ])
