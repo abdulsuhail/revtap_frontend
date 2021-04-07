@@ -27,9 +27,6 @@ jobs:
         uses: abdulsuhail/web-test@master
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
-          # urls: |
-          #   ${{env.WPT_URL}}
-
           label: 'GitHub Action Test'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
