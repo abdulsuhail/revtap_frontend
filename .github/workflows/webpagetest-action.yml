@@ -27,9 +27,8 @@ jobs:
       - name: Start ngrok in background
         run: . start-ngrok.sh 9000
 
-        
       - name: WebPageTest
-        uses: WPO-Foundation/webpagetest-github-action@main
+        uses: abdulsuhail/web-test@master
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
           label: 'GitHub Action Test'
