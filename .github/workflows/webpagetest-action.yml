@@ -17,10 +17,10 @@ jobs:
 
       - name: Install pm2
         run: npm install pm2@latest -g
-        
+
       - name: Start App
         run: pm2 start app.js
-
+      - run: printenv
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
