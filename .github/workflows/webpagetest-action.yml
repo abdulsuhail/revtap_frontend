@@ -25,7 +25,7 @@ jobs:
         run: npm install ngrok -g
 
       - name: Start ngrok in background
-        run: source . start-ngrok.sh 9000
+        run: source start-ngrok.sh 9000
 
       - run: printenv
 
