@@ -38,3 +38,6 @@ jobs:
             ${{env.NGROK_PUBLIC_URL}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
+
+      - name: Stop ngrok
+        run:  . stop-ngrok.sh
