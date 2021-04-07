@@ -21,7 +21,8 @@ jobs:
       - name: Start App
         run: pm2 start app.js 
 
-      # - run: sudo npm i -g ngrok --unsafe-perm=true --allow-root
+      - name: Start ngrok in background
+        run: ngrok http 9000 &>/dev/null &
 
       - run: printenv
 
@@ -30,5 +31,7 @@ jobs:
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
           label: 'GitHub Action Test'
+          urls: |
+            https://example.com/
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
