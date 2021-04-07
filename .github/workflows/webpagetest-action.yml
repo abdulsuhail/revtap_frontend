@@ -12,26 +12,30 @@ jobs:
       - name: Node Setup
         uses: actions/setup-node@v1
 
-      - name: Install Packages
+      - name: Install Project Dependencies
         run: npm install
 
-      - name: Prepare Build
-        run: npm run build
+      - name: Install pm2
+        run: npm install pm2@latest -g
 
-      - name: PM2 Install
-        run: npm i pm2@latest -g
+      - name: Start App
+        run: pm2 start app.js 
+        
+      - name: Download ngrok
+        run: npm install ngrok -g
 
-      - name: PM2 Start
-        run: pm2 start app.js
-      # - run: serve -s build
+      - name: Start ngrok in background
+        run: . start-ngrok.sh 9000
 
+      - run: printenv
+
+      
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
-          urls: |
-            localhost:3000
-            
           label: 'GitHub Action Test'
+          urls: |
+            ${{env.NGROK_PUBLIC_URL}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
