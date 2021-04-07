@@ -27,7 +27,7 @@ jobs:
       - name: Start ngrok in background
         run: source start-ngrok.sh 9000
 
-      - run: printenv
+      - run: echo $NGROK_PUBLIC_URL
 
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
