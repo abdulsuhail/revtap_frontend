@@ -18,6 +18,7 @@ jobs:
       - name: Install pm2
         run: npm install pm2@latest -g
 
+
       - name: Run Build
         run: npm run build
 
