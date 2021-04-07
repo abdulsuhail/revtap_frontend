@@ -23,8 +23,6 @@ jobs:
 
       # - run: sudo npm i -g ngrok --unsafe-perm=true --allow-root
 
-
-
       - run: printenv
 
       - name: WebPageTest
