@@ -10,8 +10,3 @@ app.get('/', function (req, res) {
 
 app.listen(9000);
 
-const ngrok = require('ngrok');
-(async function() {
-    const url = await ngrok.connect(9000);
-    process.env.WPT_URL = url;
-  })();
