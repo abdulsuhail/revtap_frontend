@@ -32,6 +32,6 @@ jobs:
           apiKey: ${{ secrets.WPT_API_KEY }}
           label: 'GitHub Action Test'
           urls: |
-            ${{NGROK_PUBLIC_URL}}
+            ${{env.NGROK_PUBLIC_URL}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
