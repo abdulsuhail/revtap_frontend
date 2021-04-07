@@ -27,6 +27,8 @@ jobs:
       - name: Start ngrok in background
         run: . start-ngrok.sh 9000
 
+      - run: printenv
+
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
