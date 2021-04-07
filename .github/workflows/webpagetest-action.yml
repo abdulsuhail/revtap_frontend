@@ -20,12 +20,12 @@ jobs:
       - name: Download Curl
         run: sudo apt install curl
 
-      - name: Download ngrok
-        run: curl --silent https://gist.github.com/kevinburke/8552403/raw/b59963715b506234bf040bd394fa02b067100e3d/ngrok.bash -o /tmp/ngrok.bash && bash /tmp/ngrok.bash
+      # - name: Download ngrok
+      #   run: curl --silent https://gist.github.com/kevinburke/8552403/raw/b59963715b506234bf040bd394fa02b067100e3d/ngrok.bash -o /tmp/ngrok.bash && bash /tmp/ngrok.bash
 
-      - name: Run ngrok
-        run: ngrok http 80
-        
+      # - name: Run ngrok
+      #   run: ngrok http 80
+
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
