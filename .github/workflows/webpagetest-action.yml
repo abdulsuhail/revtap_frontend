@@ -15,8 +15,8 @@ jobs:
       - name: Install Packages
         run: npm install
 
-      - name: Update Ubuntu Box
-        run: sudo apt update && sudo apt upgrade
+      # - name: Update Ubuntu Box
+      #   run: sudo apt update && sudo apt upgrade
       - name: Download Curl
         run: sudo apt install curl
 
