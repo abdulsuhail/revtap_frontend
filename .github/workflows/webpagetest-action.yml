@@ -31,7 +31,7 @@ jobs:
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
           label: 'GitHub Action Test'
-          urls: |
-            https://example.com/
+          # urls: |
+          #   https://example.com/
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
