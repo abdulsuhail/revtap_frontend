@@ -15,16 +15,14 @@ jobs:
       - name: Install Packages
         run: npm install
 
-      # - name: Update Ubuntu Box
-      #   run: sudo apt update && sudo apt upgrade
-      # - name: Download Curl
-      #   run: sudo apt install curl
+      - name: Install pm2
+        run: npm install pm2@latest -g
 
       - name: Download ngrok
         run: npm i ngrok -g
 
       - name: Run ngrok
-        run: ngrok http 9000
+        run: pm2 ngrok http 9000
 
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
