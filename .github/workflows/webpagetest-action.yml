@@ -12,7 +12,7 @@ jobs:
       - name: Node Setup
         uses: actions/setup-node@v1
 
-      - name: Install Packages
+      - name: Install Project Dependencies
         run: npm install
 
       - name: Install pm2
@@ -20,7 +20,9 @@ jobs:
 
       - name: Start App
         run: pm2 start app.js 
-
+      - name: Download ngrok
+        run: npm install ngrok -g
+        
       - name: Start ngrok in background
         run: . start-ngrok.sh 9000
 
