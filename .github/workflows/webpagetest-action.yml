@@ -17,13 +17,16 @@ jobs:
 
       - name: Install pm2
         run: npm install pm2@latest -g
+        
+      - name: Start App
+        run: pm2 start app.js
 
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
           urls: |
-            env.WPT_URL
+            ${{env.WPT_URL}}
 
           label: 'GitHub Action Test'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
