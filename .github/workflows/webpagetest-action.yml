@@ -18,6 +18,10 @@ jobs:
       - name: Install pm2
         run: npm install pm2@latest -g
 
+
+      - name: Run Build
+        run: npm run build
+
       - name: Start App
         run: pm2 start app.js 
         
@@ -25,10 +29,12 @@ jobs:
         run: npm install ngrok -g
 
       - name: Start ngrok in background
-        run: . start-ngrok.sh 9000
+        run: source start-ngrok.sh 9000
+
+      - run: echo $NGROK_PUBLIC_URL
 
       - name: WebPageTest
-        uses: WPO-Foundation/webpagetest-github-action@main
+        uses: abdulsuhail/web-test@master
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
           label: 'GitHub Action Test'
@@ -36,3 +42,6 @@ jobs:
             ${{env.NGROK_PUBLIC_URL}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
+
+      - name: Stop ngrok
+        run:  . stop-ngrok.sh
