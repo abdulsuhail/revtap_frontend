@@ -34,7 +34,7 @@ jobs:
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
-          with_ngrok: true
+          with_ngrok: false
           apiKey: ${{ secrets.WPT_API_KEY }}
           label: 'GitHub Action Test'
           urls: |
