@@ -30,12 +30,16 @@ jobs:
 
       - name: Start ngrok in background
         run: source start-ngrok.sh 9000
+        outputs:
+          NGROK_PUBLIC_URL:
+          description: public url to  ngrok
 
       - run: echo $NGROK_PUBLIC_URL
 
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
+          //add options to  ehck
           apiKey: ${{ secrets.WPT_API_KEY }}
           label: 'GitHub Action Test'
           urls: |
