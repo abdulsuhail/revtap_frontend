@@ -29,17 +29,12 @@ jobs:
         run: npm install ngrok -g
 
       - name: Start ngrok in background
-        run: nohup ngrok http 9000 &>/dev/null &
+        run: source start-ngrok.sh 9000
 
-      - run: NGROK_PUBLIC_URL="" 
-             while [ -z "$NGROK_PUBLIC_URL" ]; do
-              export NGROK_PUBLIC_URL=$(curl --silent --max-time 10 --connect-timeout 5 \
-                                        --show-error http://127.0.0.1:4040/api/tunnels | \
-                                        sed -nE 's/.*public_url":"https:..([^"]*).*/\1/p')
-              sleep 1
-              echo -n "."
-            done
-
+      - run:  export NGROK_PUBLIC_URL=$(curl --silent --max-time 10 --connect-timeout 5 \
+                            --show-error http://127.0.0.1:4040/api/tunnels | \
+                            sed -nE 's/.*public_url":"https:..([^"]*).*/\1/p')
+                    
       - run: echo $NGROK_PUBLIC_URL
 
       - name: WebPageTest
