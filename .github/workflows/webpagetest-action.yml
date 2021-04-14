@@ -38,6 +38,6 @@ jobs:
           apiKey: ${{ secrets.WPT_API_KEY }}
           label: 'GitHub Action Test'
           urls: |
-            ${{env.NGROK_PUBLIC_URL}}
+            https://www.google.com/search?q=mac+m1+chip
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
