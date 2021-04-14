@@ -25,17 +25,12 @@ jobs:
       - name: Start App
         run: pm2 start app.js 
         
-      - name: Download ngrok
-        run: npm install ngrok -g
-
-      - name: Start ngrok in background
-        run: source start-ngrok.sh 9000
-      
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
-          with_ngrok: true
           apiKey: ${{ secrets.WPT_API_KEY }}
           label: 'GitHub Action Test'
+          urls: |
+            https://www.google.com/search?q=mac+m1+chip
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
