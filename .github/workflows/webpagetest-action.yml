@@ -35,7 +35,7 @@ jobs:
                             --show-error http://127.0.0.1:4040/api/tunnels | \
                             sed -nE 's/.*public_url":"https:..([^"]*).*/\1/p')
                     
-      - run: echo $NGROK_PUBLIC_URL
+      - run: echo "NGROK_PUBLIC_URL_YML => [ $NGROK_PUBLIC_URL ]"
 
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
