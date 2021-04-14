@@ -29,17 +29,12 @@ jobs:
         run: npm install ngrok -g
 
       - name: Start ngrok in background
-        run: source start-ngrok.sh 9000
-
-      - run:  export NGROK_PUBLIC_URL=$(curl --silent --max-time 10 --connect-timeout 5 \
-                            --show-error http://127.0.0.1:4040/api/tunnels | \
-                            sed -nE 's/.*public_url":"https:..([^"]*).*/\1/p')
-                    
-      - run: echo "NGROK_PUBLIC_URL_YML => [ $NGROK_PUBLIC_URL ]"
-
+        run: nohup ngrok http 9000 &>/dev/null &
+      
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
+          with_ngrok: true
           apiKey: ${{ secrets.WPT_API_KEY }}
           label: 'GitHub Action Test'
           urls: |
