@@ -30,18 +30,12 @@ jobs:
 
       - name: Start ngrok in background
         run: source start-ngrok.sh 9000
-
-      - run: echo $NGROK_PUBLIC_URL
-
+      
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
+          with_ngrok: true
           apiKey: ${{ secrets.WPT_API_KEY }}
           label: 'GitHub Action Test'
-          urls: |
-            ${{env.NGROK_PUBLIC_URL}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
-
-      - name: Stop ngrok
-        run:  . stop-ngrok.sh
