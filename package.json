@@ -17,7 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "webpagetest test http://www.google.com --key $WPT_API_KEY --first --poll --timeout 60",
+    "test": "./node_modules/webpagetest/bin/webpagetest test http://www.google.com --key $WPT_API_KEY --first --poll --timeout 60",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
