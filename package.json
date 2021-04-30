@@ -11,7 +11,6 @@
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "styled-components": "^5.2.1",
-    "travis": "^0.1.1",
     "web-vitals": "^0.2.4",
     "webpagetest": "^0.4.0"
   },
