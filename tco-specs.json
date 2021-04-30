@@ -1,0 +1,9 @@
+{
+    "median": {
+      "firstView": {
+        "TTFB": 600,
+        "render": 500,
+        "loadTime": 2000
+      }
+    }
+  }

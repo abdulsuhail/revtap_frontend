@@ -11,12 +11,13 @@
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "styled-components": "^5.2.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "webpagetest": "^0.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "./node_modules/webpagetest/bin/webpagetest test http://www.google.com --key $WPT_API_KEY --first --poll --timeout 60 --specs tco-specs.json",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
